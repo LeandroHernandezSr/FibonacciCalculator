@@ -1,4 +1,4 @@
-package com.test.fibonacci.domain;
+package com.test.fibonacci.domain.model;
 
 public class Fibonacci {
 

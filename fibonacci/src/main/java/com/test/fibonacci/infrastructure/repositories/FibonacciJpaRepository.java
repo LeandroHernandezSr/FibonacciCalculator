@@ -4,4 +4,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.test.fibonacci.infrastructure.entities.FibonacciEntity;
 
-public interface FibonacciRepository extends JpaRepository<FibonacciEntity,Long> {}
+public interface FibonacciJpaRepository extends JpaRepository<FibonacciEntity,Long> {}
