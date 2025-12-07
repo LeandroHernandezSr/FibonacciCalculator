@@ -1,5 +1,7 @@
 package com.test.fibonacci.application.usecases;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Component;
 
 import com.test.fibonacci.domain.model.Fibonacci;
@@ -16,8 +18,8 @@ public class GetNumberByExactMatchUseCaseImpl implements GetNumberByExactMatchUs
     }
 
     @Override
-    public Fibonacci apply(Integer number) {
-        return repository.getFibonnaciEntityByNumber(number);
+    public Optional<Fibonacci> apply(Integer number) {
+        return Optional.of(repository.getFibonnaciEntityByNumber(number));
     }
 
 }
