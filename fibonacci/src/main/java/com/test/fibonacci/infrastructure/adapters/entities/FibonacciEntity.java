@@ -13,7 +13,7 @@ public class FibonacciEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer number;
-    @Column(name = "nth-number")
+    @Column(name = "nth-numbers")
     private Integer nthNumber;
 
     public Long getId(){
