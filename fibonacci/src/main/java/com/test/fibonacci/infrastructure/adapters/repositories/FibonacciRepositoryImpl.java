@@ -1,12 +1,13 @@
 package com.test.fibonacci.infrastructure.adapters.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
 import com.test.fibonacci.domain.model.Fibonacci;
 import com.test.fibonacci.domain.ports.out.FibonacciRepository;
-import com.test.fibonacci.infrastructure.entrypoints.mapper.FibonacciMapper;
+import com.test.fibonacci.infrastructure.mapper.FibonacciMapper;
 
 @Repository
 public class FibonacciRepositoryImpl implements FibonacciRepository{
@@ -20,9 +21,11 @@ public class FibonacciRepositoryImpl implements FibonacciRepository{
     }
 
     @Override
-    public Fibonacci saveFibonacciEntity(Fibonacci entity) {
-        this.repository.save(mapper.modelToEntity(entity));
-        return entity;
+    public Optional<Fibonacci> saveFibonacciEntity(Fibonacci entity) {
+        return Optional.of(entity)
+            .map(mapper::modelToEntity)
+            .map(repository::save)
+            .map(mapper::entityToModel);
     }
 
     @Override

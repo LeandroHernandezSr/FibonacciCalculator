@@ -3,19 +3,25 @@ package com.test.fibonacci.domain.model;
 public class FibonacciNumber {
 
     private Integer number;
+    private Integer nthNumber;
 
-    public FibonacciNumber(Integer number) {
+    public FibonacciNumber(Integer number,Integer nthNumber) {
         if (number == null) throw new IllegalArgumentException("The number cannot be null!");
         this.number = number;
+        if (nthNumber == null) calculateNthFibonacci();
     }
 
     public Integer getNumber() {
         return this.number;
     }
 
-    public Integer calculateNthFibonacci(){
-        if (number == 0) return 0;
-        if (number == 1) return 1;
+    public Integer getNthNumber(){
+        return this.nthNumber;
+    }
+
+    private void calculateNthFibonacci(){
+        if (number == 0) nthNumber= 0;
+        if (number == 1) nthNumber= 1;
 
         Integer a = 0; 
         Integer b = 1;
@@ -27,6 +33,6 @@ public class FibonacciNumber {
             b = c;     
         }
 
-        return c;
+        nthNumber=c;
     }
 }
