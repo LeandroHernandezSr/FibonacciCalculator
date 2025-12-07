@@ -17,7 +17,7 @@ public class SaveNthNumberUseCaseImpl implements SaveNthNumberUseCase{
 
     @Override
     public Fibonacci apply(Fibonacci fibonacci) {
-        return null;
+        return repository.saveFibonacciEntity(fibonacci);
     }
 
 }
