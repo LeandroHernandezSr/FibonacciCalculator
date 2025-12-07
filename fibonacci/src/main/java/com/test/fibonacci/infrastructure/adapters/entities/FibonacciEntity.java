@@ -1,4 +1,4 @@
-package com.test.fibonacci.infrastructure.entities;
+package com.test.fibonacci.infrastructure.adapters.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
