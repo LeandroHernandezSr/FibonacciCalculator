@@ -19,7 +19,7 @@ public class GetNthNumberController {
     }
 
     @PostMapping("/get-nth-number")
-    public ResponseEntity<?> getNthNumber(@RequestBody FibonacciDto dto) {
+    public ResponseEntity<Integer> getNthNumber(@RequestBody FibonacciDto dto) {
         return this.handler.getNthNumber(dto);
     }
 }

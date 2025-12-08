@@ -22,10 +22,10 @@ public class FibonacciHandler {
         this.mapper=mapper;
     }
     
-    public ResponseEntity<?> getNthNumber(FibonacciDto dto){
+    public ResponseEntity<Integer> getNthNumber(FibonacciDto dto){
         var number=getNumberByExactMatchUseCase.apply(dto.number());
 
-        if (!number.isEmpty()){
+        if (number.isPresent()){
             return ResponseEntity.ok(number.get().getNthNumber());
         }
 
