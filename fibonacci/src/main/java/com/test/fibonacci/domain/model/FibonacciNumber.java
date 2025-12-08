@@ -2,13 +2,13 @@ package com.test.fibonacci.domain.model;
 
 public class FibonacciNumber {
 
-    private Integer number;
-    private Integer nthNumber;
+    private final Integer number;
+    private final Integer nthNumber;
 
     public FibonacciNumber(Integer number,Integer nthNumber) {
         if (number == null) throw new IllegalArgumentException("The number cannot be null!");
         this.number = number;
-        if (nthNumber == null) calculateNthFibonacci();
+        this.nthNumber = nthNumber != null ? nthNumber : calculateNthFibonacci();
     }
 
     public Integer getNumber() {
@@ -19,20 +19,20 @@ public class FibonacciNumber {
         return this.nthNumber;
     }
 
-    private void calculateNthFibonacci(){
-        if (number == 0) nthNumber= 0;
-        if (number == 1) nthNumber= 1;
+    private Integer calculateNthFibonacci(){
+        if (number == 0) return 0;
+        if (number == 1) return  1;
 
-        Integer a = 0; 
-        Integer b = 1;
-        Integer c = 0;
+        int a = 0;
+        int b = 1;
+        int c = 0;
 
-        for (Integer i = 2; i <= number; i++){
+        for (int i = 2; i <= number; i++){
             c = a + b;
             a = b;     
             b = c;     
         }
 
-        nthNumber=c;
+        return c;
     }
 }

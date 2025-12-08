@@ -29,15 +29,12 @@ public class FibonacciRepositoryImpl implements FibonacciRepository{
     }
 
     @Override
-    public Fibonacci getFibonnaciEntityByNumber(Integer number) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getFibonnaciEntityByNumber'");
+    public Optional<Fibonacci> getFibonnaciEntityByNumber(Integer number) {
+        return this.repository.findByNumber(number).map(mapper::entityToModel);
     }
 
     @Override
     public List<Fibonacci> getAllEntities() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllEntities'");
+        return this.repository.findAll().stream().map(mapper::entityToModel).toList();
     }
-
 }

@@ -25,7 +25,7 @@ public class FibonacciMapper {
         entity.setNthNumber(fibonacci.getNthNumber());
         entity.setNumber(fibonacci.getEnteredNumber());
 
-        return new FibonacciEntity();
+        return entity;
     }
 
     public Fibonacci entityToModel(FibonacciEntity entity){

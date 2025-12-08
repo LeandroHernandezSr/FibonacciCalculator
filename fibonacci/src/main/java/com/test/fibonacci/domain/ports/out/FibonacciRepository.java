@@ -7,6 +7,6 @@ import com.test.fibonacci.domain.model.Fibonacci;
 
 public interface FibonacciRepository {
     Optional<Fibonacci> saveFibonacciEntity(Fibonacci entity);
-    Fibonacci getFibonnaciEntityByNumber(Integer number);
+    Optional<Fibonacci> getFibonnaciEntityByNumber(Integer number);
     List<Fibonacci>getAllEntities();
 }

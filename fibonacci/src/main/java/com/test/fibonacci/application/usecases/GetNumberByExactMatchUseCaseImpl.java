@@ -19,7 +19,7 @@ public class GetNumberByExactMatchUseCaseImpl implements GetNumberByExactMatchUs
 
     @Override
     public Optional<Fibonacci> apply(Integer number) {
-        return Optional.of(repository.getFibonnaciEntityByNumber(number));
+        return repository.getFibonnaciEntityByNumber(number);
     }
 
 }

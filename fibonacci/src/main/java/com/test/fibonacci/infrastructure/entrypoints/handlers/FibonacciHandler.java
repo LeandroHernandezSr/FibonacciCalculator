@@ -1,7 +1,5 @@
 package com.test.fibonacci.infrastructure.entrypoints.handlers;
 
-import java.util.Optional;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 

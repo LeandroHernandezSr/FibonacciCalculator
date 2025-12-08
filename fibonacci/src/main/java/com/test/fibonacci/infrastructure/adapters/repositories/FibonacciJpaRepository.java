@@ -6,7 +6,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.test.fibonacci.infrastructure.adapters.entities.FibonacciEntity;
 
+import java.util.Optional;
+
 public interface FibonacciJpaRepository extends JpaRepository<FibonacciEntity,Long> {
-    @Query(value = "SELECT * FROM fibonacci_numbers WHERE number = :num", nativeQuery = true)
-    FibonacciEntity findByNumber(@Param("num") Integer num);
+    @Query(value = "SELECT * FROM numbers WHERE number = :num", nativeQuery = true)
+    Optional<FibonacciEntity> findByNumber(@Param("num") Integer num);
 }
