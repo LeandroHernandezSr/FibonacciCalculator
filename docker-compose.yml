@@ -1,0 +1,15 @@
+services:
+  mybd:
+    image: mysql
+    ports: ["3306:3306"]
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: myfibonaccibd
+      MYSQL_USER: leonardo_de_pisa
+      MYSQL_PASSWORD: leo1234
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+
+volumes:
+  mysql_data:
