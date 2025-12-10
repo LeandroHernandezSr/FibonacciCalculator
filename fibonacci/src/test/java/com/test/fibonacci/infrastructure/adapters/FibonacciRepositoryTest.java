@@ -37,11 +37,12 @@ class FibonacciRepositoryTest {
 
     @BeforeEach
     void setup() {
-        model = new Fibonacci(new FibonacciId(1L), new FibonacciNumber(6, 8));
+        model = new Fibonacci(new FibonacciId(1L), new FibonacciNumber(6, 8,8));
         entity = new FibonacciEntity();
         entity.setId(1L);
         entity.setNumber(6);
         entity.setNthNumber(8);
+        entity.setOccurrences(8);
     }
 
     @Test

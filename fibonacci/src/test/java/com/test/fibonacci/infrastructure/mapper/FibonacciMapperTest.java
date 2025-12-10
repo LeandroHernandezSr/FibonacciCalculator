@@ -15,23 +15,21 @@ class FibonacciMapperTest {
 
     @Test
     void testDtoToModel() {
-        FibonacciDto dto = new FibonacciDto(5L, 8);
+        FibonacciDto dto = new FibonacciDto( 8);
 
         Fibonacci model = mapper.dtoToModel(dto);
 
         assertNotNull(model);
-        assertEquals(5L, model.getId());
         assertEquals(8, model.getEnteredNumber());
     }
 
     @Test
     void testDtoToModelWhenIdIsNull() {
-        FibonacciDto dto = new FibonacciDto(null, 13);
+        FibonacciDto dto = new FibonacciDto( 13);
 
         Fibonacci model = mapper.dtoToModel(dto);
 
         assertNotNull(model);
-        assertNull(model.getId());
         assertEquals(13, model.getEnteredNumber());
     }
 
@@ -39,7 +37,7 @@ class FibonacciMapperTest {
     void testModelToEntity() {
         Fibonacci model = new Fibonacci(
                 new FibonacciId(10L),
-                new FibonacciNumber(6, 8)
+                new FibonacciNumber(6, 8,8)
         );
 
         FibonacciEntity entity = mapper.modelToEntity(model);
@@ -48,6 +46,7 @@ class FibonacciMapperTest {
         assertEquals(10L, entity.getId());
         assertEquals(6, entity.getNumber());
         assertEquals(8, entity.getNthNumber());
+        assertEquals(8,entity.getOccurrences());
     }
 
     @Test

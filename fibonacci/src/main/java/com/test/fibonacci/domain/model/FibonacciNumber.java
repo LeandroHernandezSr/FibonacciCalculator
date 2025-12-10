@@ -4,11 +4,13 @@ public class FibonacciNumber {
 
     private final Integer number;
     private final Integer nthNumber;
+    private Integer occurrences;
 
-    public FibonacciNumber(Integer number,Integer nthNumber) {
+    public FibonacciNumber(Integer number, Integer nthNumber,Integer occurrences) {
         if (number == null) throw new IllegalArgumentException("The number cannot be null!");
         this.number = number;
         this.nthNumber = nthNumber != null ? nthNumber : calculateNthFibonacci();
+        this.occurrences = occurrences != null ? occurrences : 1;
     }
 
     public Integer getNumber() {
@@ -17,6 +19,14 @@ public class FibonacciNumber {
 
     public Integer getNthNumber(){
         return this.nthNumber;
+    }
+
+    public Integer getOccurrences() {
+        return this.occurrences;
+    }
+
+    public void incrementOccurrences() {
+        this.occurrences++;
     }
 
     private Integer calculateNthFibonacci(){

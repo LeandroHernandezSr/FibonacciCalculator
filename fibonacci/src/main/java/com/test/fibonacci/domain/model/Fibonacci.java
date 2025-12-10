@@ -22,4 +22,10 @@ public class Fibonacci {
         return this.number.getNumber();
     }
 
+    public Integer getOccurrences(){return this.number.getOccurrences();}
+
+    public void incrementOccurrences(){
+        this.number.incrementOccurrences();
+    }
+
 }   

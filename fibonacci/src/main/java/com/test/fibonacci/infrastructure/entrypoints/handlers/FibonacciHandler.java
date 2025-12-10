@@ -1,5 +1,8 @@
 package com.test.fibonacci.infrastructure.entrypoints.handlers;
 
+import com.test.fibonacci.domain.ports.in.GetNumberOccurrencesUseCase;
+import com.test.fibonacci.infrastructure.entrypoints.dtos.FibonacciResponseDto;
+import com.test.fibonacci.infrastructure.entrypoints.dtos.NthNumberResponseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -8,30 +11,46 @@ import com.test.fibonacci.domain.ports.in.SaveNthNumberUseCase;
 import com.test.fibonacci.infrastructure.entrypoints.dtos.FibonacciDto;
 import com.test.fibonacci.infrastructure.mapper.FibonacciMapper;
 
+import java.util.List;
+
 
 @Component
 public class FibonacciHandler {
 
     private final SaveNthNumberUseCase saveNthNumberUseCase;
     private final GetNumberByExactMatchUseCase getNumberByExactMatchUseCase;
+    private final GetNumberOccurrencesUseCase  getNumberOccurrencesUseCase;
     private final FibonacciMapper mapper;
 
-    public FibonacciHandler(SaveNthNumberUseCase saveNthNumberUseCase,GetNumberByExactMatchUseCase getNumberByExactMatchUseCase,FibonacciMapper mapper){
+    public FibonacciHandler(SaveNthNumberUseCase saveNthNumberUseCase, GetNumberByExactMatchUseCase getNumberByExactMatchUseCase, GetNumberOccurrencesUseCase getNumberOccurrencesUseCase, FibonacciMapper mapper){
         this.saveNthNumberUseCase=saveNthNumberUseCase;
         this.getNumberByExactMatchUseCase=getNumberByExactMatchUseCase;
+        this.getNumberOccurrencesUseCase = getNumberOccurrencesUseCase;
         this.mapper=mapper;
     }
     
-    public ResponseEntity<Integer> getNthNumber(FibonacciDto dto){
+    public ResponseEntity<NthNumberResponseDto> getNthNumber(FibonacciDto dto){
         var number=getNumberByExactMatchUseCase.apply(dto.number());
 
         if (number.isPresent()){
-            return ResponseEntity.ok(number.get().getNthNumber());
+            number.get().incrementOccurrences();
+            saveNthNumberUseCase.apply(number.get());
+            return ResponseEntity.ok(new NthNumberResponseDto(number.get().getNthNumber()));
         }
 
         var nthNumber=saveNthNumberUseCase.apply(mapper.dtoToModel(dto));
 
-        return ResponseEntity.ok(nthNumber.getNthNumber());
+        return ResponseEntity.ok(new NthNumberResponseDto(nthNumber.getNthNumber()));
+    }
+
+    public ResponseEntity<List<FibonacciResponseDto>>getOccurrencesOrderBy(){
+        return ResponseEntity.ok(this.getNumberOccurrencesUseCase.apply()
+                .stream()
+                .map(o->new FibonacciResponseDto(
+                        o.getEnteredNumber(),
+                        o.getOccurrences())
+                )
+                .toList());
     }
 
 }

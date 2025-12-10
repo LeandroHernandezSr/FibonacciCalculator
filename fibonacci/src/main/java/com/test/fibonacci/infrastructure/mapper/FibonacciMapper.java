@@ -12,7 +12,7 @@ import com.test.fibonacci.infrastructure.entrypoints.dtos.FibonacciDto;
 public class FibonacciMapper {
 
     public Fibonacci dtoToModel(FibonacciDto dto) {
-        return new Fibonacci(new FibonacciId(dto.id() != null ? dto.id() : null), new FibonacciNumber(dto.number(),null));
+        return new Fibonacci(new FibonacciId(null), new FibonacciNumber(dto.number(),null,null));
     }
 
     public FibonacciEntity modelToEntity(Fibonacci fibonacci) {
@@ -22,6 +22,10 @@ public class FibonacciMapper {
             entity.setId(fibonacci.getId());
         }
 
+        if (fibonacci.getOccurrences() != null){
+            entity.setOccurrences(fibonacci.getOccurrences());
+        }
+
         entity.setNthNumber(fibonacci.getNthNumber());
         entity.setNumber(fibonacci.getEnteredNumber());
 
@@ -29,7 +33,7 @@ public class FibonacciMapper {
     }
 
     public Fibonacci entityToModel(FibonacciEntity entity){
-        return new Fibonacci(new FibonacciId(entity.getId()), new FibonacciNumber(entity.getNumber(),entity.getNthNumber()));
+        return new Fibonacci(new FibonacciId(entity.getId()), new FibonacciNumber(entity.getNumber(),entity.getNthNumber(),entity.getOccurrences()));
     }
 
 }
