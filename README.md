@@ -41,10 +41,6 @@ Accede a la documentación interactiva para explorar y probar todos los endpoint
 
 ## 🚀 Cómo Ejecutar el Proyecto
 
-Tienes dos opciones para poner en marcha el servicio:
-
-### Opción 1: Usando el Script `run.sh` (Recomendado)
-
 El script `run.sh` automatiza todos los pasos necesarios:
 1. Inicia el contenedor de la base de datos con Docker Compose.
 2. Construye el proyecto utilizando Maven Wrapper.
