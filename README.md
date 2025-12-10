@@ -24,25 +24,19 @@ Para ejecutar el proyecto, necesitarás tener instalados los siguientes componen
 ## 🌐 Endpoints del Servicio
 
 El servicio está disponible en el puerto `8080` de forma local (`http://localhost:8080`).
-El servicio está disponible en el puerto `8080` en AWS (`http://54.94.97.140:8080`).
+El servicio está disponible en el puerto `8080` en Cloud (`http://54.94.97.140:8080`).
 
 | Endpoint | Método | Parámetro | Descripción |
 | :--- | :--- | :--- | :--- |
 | `/fibonacci/get-nth-number` | `POST` | **number** (obligatorio) | Retorna el **$n$-ésimo número** de la secuencia de Fibonacci.|
 | `/fibonacci/occurrences` | `GET` | *Ninguno* | Retorna una lista ordenada de mayor a menor contando las **ocurrencias** de cada número de Fibonacci consultado previamente. |
 
-📖 Interfaz de Usuario de Swagger (OpenAPI)
-Accede a la documentación interactiva para explorar y probar todos los endpoints:
-
-Local: http://localhost:8080/swagger-ui/index.html
-
-Cloud: http://54.94.97.140:8080/swagger-ui/index.html
-
 ### 📖 Interfaz de Usuario de Swagger (OpenAPI)
 
 Accede a la documentación interactiva para explorar y probar todos los endpoints:
 
 * **URL:** `http://localhost:8080/swagger-ui.html`
+* **Cloud:** http://54.94.97.140:8080/swagger-ui/index.html
 
 
 ## 🚀 Cómo Ejecutar el Proyecto
