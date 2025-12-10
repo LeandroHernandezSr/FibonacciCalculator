@@ -6,8 +6,6 @@ Este proyecto implementa un servicio RESTful para cálculos de la secuencia de F
 
 * **Arquitectura Hexagonal (Ports and Adapters):** Separación estricta entre el **Dominio (Core)**, la **Aplicación** y la **Infraestructura**. Esto facilita el cambio de bases de datos, frameworks web u otros componentes externos sin afectar la lógica de negocio central. 
 
-[Image of hexagonal architecture diagram]
-
 * **Domain-Driven Design (DDD):** El modelo de negocio (el cálculo de Fibonacci y el registro de consultas) está en el centro, asegurando que la lógica sea clara, testeable y orientada a los requisitos del negocio.
 * **Contenedorización con Docker Compose:** Se utiliza Docker para gestionar la base de datos de forma sencilla y reproducible.
 * **Documentación Interactiva con Swagger/OpenAPI:** Acceso a una interfaz de usuario para explorar y probar los endpoints del servicio.
@@ -36,3 +34,18 @@ El script `run.sh` automatiza todos los pasos necesarios:
 
 ```bash
 ./run.sh
+
+## 🌐 Endpoints del Servicio
+
+El servicio está disponible en el puerto `8080` de forma local (`http://localhost:8080`).
+
+| Endpoint | Método | Parámetro | Descripción |
+| :--- | :--- | :--- | :--- |
+| `/fibonacci/get-nth-number` | `GET` | **n** (obligatorio) | Retorna el **$n$-ésimo número** de la secuencia de Fibonacci. (Ejemplo: `http://localhost:8080/fibonacci/get-nth-number?n=10`) |
+| `/fibonacci/occurrences` | `GET` | *Ninguno* | Retorna una lista ordenada de mayor a menor contando las **ocurrencias** de cada número de Fibonacci consultado previamente. |
+
+### 📖 Interfaz de Usuario de Swagger (OpenAPI)
+
+Accede a la documentación interactiva para explorar y probar todos los endpoints:
+
+* **URL:** `http://localhost:8080/swagger-ui.html`
