@@ -23,8 +23,9 @@ Para ejecutar el proyecto, necesitarás tener instalados los siguientes componen
 
 ## 🌐 Endpoints del Servicio
 
-El servicio está disponible en el puerto `8080` de forma local (`http://localhost:8080`).
-El servicio está disponible en el puerto `8080` en Cloud (`http://54.94.97.140:8080`).
+* El servicio está disponible en el puerto `8080` de forma local (`http://localhost:8080`).
+
+* El servicio está disponible en el puerto `8080` en Cloud (`http://54.94.97.140:8080`).
 
 | Endpoint | Método | Parámetro | Descripción |
 | :--- | :--- | :--- | :--- |
