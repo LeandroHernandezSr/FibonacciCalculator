@@ -21,20 +21,6 @@ Para ejecutar el proyecto, necesitarás tener instalados los siguientes componen
 
 ---
 
-## 🚀 Cómo Ejecutar el Proyecto
-
-Tienes dos opciones para poner en marcha el servicio:
-
-### Opción 1: Usando el Script `run.sh` (Recomendado)
-
-El script `run.sh` automatiza todos los pasos necesarios:
-1. Inicia el contenedor de la base de datos con Docker Compose.
-2. Construye el proyecto utilizando Maven Wrapper.
-3. Ejecuta el archivo JAR resultante.
-
-```bash
-./run.sh
-
 ## 🌐 Endpoints del Servicio
 
 El servicio está disponible en el puerto `8080` de forma local (`http://localhost:8080`).
@@ -49,3 +35,18 @@ El servicio está disponible en el puerto `8080` de forma local (`http://localho
 Accede a la documentación interactiva para explorar y probar todos los endpoints:
 
 * **URL:** `http://localhost:8080/swagger-ui.html`
+
+
+## 🚀 Cómo Ejecutar el Proyecto
+
+Tienes dos opciones para poner en marcha el servicio:
+
+### Opción 1: Usando el Script `run.sh` (Recomendado)
+
+El script `run.sh` automatiza todos los pasos necesarios:
+1. Inicia el contenedor de la base de datos con Docker Compose.
+2. Construye el proyecto utilizando Maven Wrapper.
+3. Ejecuta el archivo JAR resultante.
+
+```bash
+./run.sh
