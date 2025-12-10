@@ -1,3 +1,9 @@
+# 💡 Aclaración
+
+Si bien esta funcionalidad podría haberse implementado de forma sencilla usando el patrón MVC, opté por esta arquitectura para demostrar mi dominio de patrones de diseño y buenas prácticas de arquitectura de software.  
+
+Este proyecto no solo resuelve el problema, sino que también sirve como ejemplo práctico de cómo estructurar código limpio, mantenible y escalable. ¡Te invito a explorarlo y descubrir cómo cada componente encaja cuidadosamente en la solución!
+
 # 🔢 Fibonacci Calculator - Arquitectura Hexagonal y DDD
 
 Este proyecto implementa un servicio RESTful para cálculos de la secuencia de Fibonacci, destacando por su **diseño basado en la Arquitectura Hexagonal (Ports and Adapters)** y la aplicación de los principios de **Domain-Driven Design (DDD)**. Esto garantiza una separación clara de responsabilidades, alta mantenibilidad y un dominio del negocio expresivo e independiente de la infraestructura.
@@ -49,3 +55,4 @@ El script `run.sh` automatiza todos los pasos necesarios:
 
 ```bash
 ./run.sh
+
