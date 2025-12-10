@@ -1,23 +1,38 @@
-# FibonacciCalculator
+# 🔢 Fibonacci Calculator - Arquitectura Hexagonal y DDD
 
-Este proyecto implementa la arquitectura hexagonal (puertos y adaptadores) para lograr una separación clara entre el dominio, la aplicación y la infraestructura. La lógica principal del sistema se construye siguiendo principios de Domain-Driven Design (DDD), lo que permite un modelo de dominio expresivo, mantenible y orientado al negocio.
+Este proyecto implementa un servicio RESTful para cálculos de la secuencia de Fibonacci, destacando por su **diseño basado en la Arquitectura Hexagonal (Ports and Adapters)** y la aplicación de los principios de **Domain-Driven Design (DDD)**. Esto garantiza una separación clara de responsabilidades, alta mantenibilidad y un dominio del negocio expresivo e independiente de la infraestructura.
 
-Además, el proyecto incorpora Swagger/OpenAPI para documentar de forma interactiva los dos endpoints disponibles, facilitando la exploración y prueba del servicio.
+## 🌟 Características Principales
 
-¿Como ejecutar proyecto?
+* **Arquitectura Hexagonal (Ports and Adapters):** Separación estricta entre el **Dominio (Core)**, la **Aplicación** y la **Infraestructura**. Esto facilita el cambio de bases de datos, frameworks web u otros componentes externos sin afectar la lógica de negocio central. 
 
-Primeramente necesitas tener varios requisitos:
+[Image of hexagonal architecture diagram]
 
--JDK 21
--Docker
+* **Domain-Driven Design (DDD):** El modelo de negocio (el cálculo de Fibonacci y el registro de consultas) está en el centro, asegurando que la lógica sea clara, testeable y orientada a los requisitos del negocio.
+* **Contenedorización con Docker Compose:** Se utiliza Docker para gestionar la base de datos de forma sencilla y reproducible.
+* **Documentación Interactiva con Swagger/OpenAPI:** Acceso a una interfaz de usuario para explorar y probar los endpoints del servicio.
 
-Luego de esto, es necesario correr el archivo "docker-compose.yml" para crear el contenedor de la base de datos. El proyecto puedes ejecutarlo desde el IDE o utilizando maven wrapper como ./mvnw package, luego de esto ejecutas el archivo .jar.
+---
 
-De igual manera si se quiere evitar esto, puede ejecutar el script "run.sh" para ejecutar los pasos anteriores en uno solo.
+## 🛠️ Requisitos del Sistema
 
-Endpoints disponibles:
+Para ejecutar el proyecto, necesitarás tener instalados los siguientes componentes:
 
-/fibonacci/get-nth-number: Retorna el n-e simo número de fibonacci.
+* **Java Development Kit (JDK) 21**
+* **Docker** (para la base de datos)
 
-/fibonacci/occurrences: Retorna lista ordenada de mayor a menor contando las ocurrencias de cada número consultado. 
+---
 
+## 🚀 Cómo Ejecutar el Proyecto
+
+Tienes dos opciones para poner en marcha el servicio:
+
+### Opción 1: Usando el Script `run.sh` (Recomendado)
+
+El script `run.sh` automatiza todos los pasos necesarios:
+1. Inicia el contenedor de la base de datos con Docker Compose.
+2. Construye el proyecto utilizando Maven Wrapper.
+3. Ejecuta el archivo JAR resultante.
+
+```bash
+./run.sh
