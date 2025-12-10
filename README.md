@@ -28,7 +28,7 @@ El servicio está disponible en el puerto `8080` en AWS (`http://54.94.97.140:80
 
 | Endpoint | Método | Parámetro | Descripción |
 | :--- | :--- | :--- | :--- |
-| `/fibonacci/get-nth-number` | `POST` | **n** (obligatorio) | Retorna el **$n$-ésimo número** de la secuencia de Fibonacci.|
+| `/fibonacci/get-nth-number` | `POST` | **number** (obligatorio) | Retorna el **$n$-ésimo número** de la secuencia de Fibonacci.|
 | `/fibonacci/occurrences` | `GET` | *Ninguno* | Retorna una lista ordenada de mayor a menor contando las **ocurrencias** de cada número de Fibonacci consultado previamente. |
 
 📖 Interfaz de Usuario de Swagger (OpenAPI)
