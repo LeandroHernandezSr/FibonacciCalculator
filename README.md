@@ -1,8 +1,9 @@
-# 💡 Aclaración
-
-Si bien esta funcionalidad podría haberse implementado de forma sencilla usando el patrón MVC, opté por esta arquitectura para demostrar mi dominio de patrones de diseño y buenas prácticas de arquitectura de software.  
+💡 **Aclaración**  
+Si bien esta funcionalidad podría haberse implementado de forma sencilla usando el patrón MVC, opté por esta arquitectura para demostrar mi dominio de patrones de diseño y buenas prácticas de arquitectura de software.
 
 Este proyecto no solo resuelve el problema, sino que también sirve como ejemplo práctico de cómo estructurar código limpio, mantenible y escalable. ¡Te invito a explorarlo y descubrir cómo cada componente encaja cuidadosamente en la solución!
+
+Si prefieres ver la versión basada en MVC, también creé **el mismo proyecto utilizando el patrón MVC**, que puedes revisar aquí: [FibonacciCalculatorMVC](https://github.com/LeandroHernandezSr/FibonacciCalculatorMVC)
 
 # 🔢 Fibonacci Calculator - Arquitectura Hexagonal y DDD
 
