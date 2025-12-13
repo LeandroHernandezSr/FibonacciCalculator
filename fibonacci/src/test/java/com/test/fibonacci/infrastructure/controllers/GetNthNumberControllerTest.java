@@ -32,7 +32,7 @@ class GetNthNumberControllerTest {
     void testGetNthNumberDelegatesToHandler() {
         // given
         FibonacciDto dto = new FibonacciDto( 8);
-        ResponseEntity<NthNumberResponseDto> expectedResponse = ResponseEntity.ok(new NthNumberResponseDto(21));
+        ResponseEntity<NthNumberResponseDto> expectedResponse = ResponseEntity.ok(new NthNumberResponseDto(21L));
 
         when(handler.getNthNumber(dto)).thenReturn(expectedResponse);
 

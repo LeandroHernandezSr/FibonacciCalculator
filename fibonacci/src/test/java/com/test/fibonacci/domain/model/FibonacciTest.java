@@ -29,10 +29,10 @@ class FibonacciTest {
     @Test
     void testGetNthNumberDelegatesToFibonacciNumber() {
         // given
-        when(fibonacciNumber.getNthNumber()).thenReturn(21);
+        when(fibonacciNumber.getNthNumber()).thenReturn(21L);
 
         // when
-        Integer result = fibonacci.getNthNumber();
+        Long result = fibonacci.getNthNumber();
 
         // then
         assertEquals(21, result);

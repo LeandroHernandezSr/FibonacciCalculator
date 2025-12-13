@@ -37,7 +37,7 @@ class FibonacciMapperTest {
     void testModelToEntity() {
         Fibonacci model = new Fibonacci(
                 new FibonacciId(10L),
-                new FibonacciNumber(6, 8,8)
+                new FibonacciNumber(6, 8L,8)
         );
 
         FibonacciEntity entity = mapper.modelToEntity(model);
@@ -54,7 +54,7 @@ class FibonacciMapperTest {
         FibonacciEntity entity = new FibonacciEntity();
         entity.setId(22L);
         entity.setNumber(7);
-        entity.setNthNumber(13);
+        entity.setNthNumber(13L);
 
         Fibonacci model = mapper.entityToModel(entity);
 

@@ -44,9 +44,9 @@ class FibonacciEntityTest {
 
     @Test
     void testGetNthNumberDelegatesToFibonacciNumber() {
-        when(fibonacciNumber.getNthNumber()).thenReturn(21);
+        when(fibonacciNumber.getNthNumber()).thenReturn(21L);
 
-        Integer result = fibonacci.getNthNumber();
+        Long result = fibonacci.getNthNumber();
 
         assertEquals(21, result);
         verify(fibonacciNumber).getNthNumber();

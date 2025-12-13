@@ -16,7 +16,7 @@ public class FibonacciEntity {
     private Long id;
     private Integer number;
     @Column(name = "nth-numbers")
-    private Integer nthNumber;
+    private Long nthNumber;
     private Integer occurrences;
 
     public Long getId(){
@@ -36,12 +36,11 @@ public class FibonacciEntity {
     }
 
 
-    public Integer getNthNumber(){
+    public Long getNthNumber(){
         return this.nthNumber;
     }
 
-
-    public void setNthNumber(Integer nthNumber){
+    public void setNthNumber(Long nthNumber){
         this.nthNumber=nthNumber;
     }
 

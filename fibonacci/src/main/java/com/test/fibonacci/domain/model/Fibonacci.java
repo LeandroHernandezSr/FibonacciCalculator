@@ -10,7 +10,7 @@ public class Fibonacci {
         this.fibonacciId=fibonacciId;
     }
 
-    public Integer getNthNumber() {
+    public Long getNthNumber() {
         return number.getNthNumber();
     }
 

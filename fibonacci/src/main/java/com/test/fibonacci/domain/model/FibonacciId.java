@@ -2,7 +2,7 @@ package com.test.fibonacci.domain.model;
 
 public class FibonacciId {
     
-    private Long id;
+    private final Long id;
     
     public FibonacciId(Long id){
         this.id=id;

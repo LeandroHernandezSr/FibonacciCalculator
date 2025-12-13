@@ -3,10 +3,10 @@ package com.test.fibonacci.domain.model;
 public class FibonacciNumber {
 
     private final Integer number;
-    private final Integer nthNumber;
+    private final Long nthNumber;
     private Integer occurrences;
 
-    public FibonacciNumber(Integer number, Integer nthNumber,Integer occurrences) {
+    public FibonacciNumber(Integer number, Long nthNumber,Integer occurrences) {
         if (number == null) throw new IllegalArgumentException("The number cannot be null!");
         this.number = number;
         this.nthNumber = nthNumber != null ? nthNumber : calculateNthFibonacci();
@@ -17,7 +17,7 @@ public class FibonacciNumber {
         return this.number;
     }
 
-    public Integer getNthNumber(){
+    public Long getNthNumber(){
         return this.nthNumber;
     }
 
@@ -29,13 +29,13 @@ public class FibonacciNumber {
         this.occurrences++;
     }
 
-    private Integer calculateNthFibonacci(){
-        if (number == 0) return 0;
-        if (number == 1) return  1;
+    private Long calculateNthFibonacci(){
+        if (number == 0) return 0L;
+        if (number == 1) return  1L;
 
-        int a = 0;
-        int b = 1;
-        int c = 0;
+        long a = 0;
+        long b = 1;
+        long c = 0;
 
         for (int i = 2; i <= number; i++){
             c = a + b;

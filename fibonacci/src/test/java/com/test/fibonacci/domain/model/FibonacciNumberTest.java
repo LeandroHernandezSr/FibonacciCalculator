@@ -20,7 +20,7 @@ class FibonacciNumberTest {
 
     @Test
     void testGetNthNumberUsesProvidedValue() {
-        FibonacciNumber fn = new FibonacciNumber(8, 100,100); // nthNumber viene dado
+        FibonacciNumber fn = new FibonacciNumber(8, 100L,100); // nthNumber viene dado
         assertEquals(100, fn.getNthNumber());
     }
 

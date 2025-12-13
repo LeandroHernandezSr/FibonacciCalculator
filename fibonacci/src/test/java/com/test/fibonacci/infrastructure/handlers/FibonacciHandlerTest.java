@@ -54,7 +54,7 @@ class FibonacciHandlerTest {
         // given
         FibonacciDto dto = new FibonacciDto( 8);
 
-        Fibonacci existing = new Fibonacci(new FibonacciId(1L), new FibonacciNumber(8, 21, 8));
+        Fibonacci existing = new Fibonacci(new FibonacciId(1L), new FibonacciNumber(8, 21L, 8));
 
         when(getNumberByExactMatchUseCase.apply(8)).thenReturn(Optional.of(existing));
 
@@ -62,7 +62,7 @@ class FibonacciHandlerTest {
         ResponseEntity<NthNumberResponseDto> response = handler.getNthNumber(dto);
 
         // then
-        assertEquals(new NthNumberResponseDto(21), response.getBody());
+        assertEquals(new NthNumberResponseDto(21L), response.getBody());
 
         verify(getNumberByExactMatchUseCase).apply(8);
         verify(saveNthNumberUseCase).apply(existing);
@@ -75,8 +75,8 @@ class FibonacciHandlerTest {
         // given
         FibonacciDto dto = new FibonacciDto( 10);
 
-        Fibonacci mapped = new Fibonacci(new FibonacciId(1L), new FibonacciNumber(10, 55,8));
-        Fibonacci saved  = new Fibonacci(new FibonacciId(2L), new FibonacciNumber(10, 55,8));
+        Fibonacci mapped = new Fibonacci(new FibonacciId(1L), new FibonacciNumber(10, 55L,8));
+        Fibonacci saved  = new Fibonacci(new FibonacciId(2L), new FibonacciNumber(10, 55L,8));
 
         when(getNumberByExactMatchUseCase.apply(10)).thenReturn(Optional.empty());
         when(mapper.dtoToModel(dto)).thenReturn(mapped);
@@ -86,7 +86,7 @@ class FibonacciHandlerTest {
         ResponseEntity<NthNumberResponseDto> response = handler.getNthNumber(dto);
 
         // then
-        assertEquals(new NthNumberResponseDto(55), response.getBody());
+        assertEquals(new NthNumberResponseDto(55L), response.getBody());
 
         verify(getNumberByExactMatchUseCase).apply(10);
         verify(mapper).dtoToModel(dto);
