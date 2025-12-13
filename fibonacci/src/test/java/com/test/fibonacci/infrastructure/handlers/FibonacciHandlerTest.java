@@ -76,7 +76,7 @@ class FibonacciHandlerTest {
         ApiResponseDto<NthNumberResponseDto> body = response.getBody();
 
         assertEquals(55L, body.data().nthNumber());
-        assertEquals("Operation finished succesfully", body.message());
+        assertEquals("Operation finished successfully", body.message());
         assertTrue(body.success());
         assertNull(body.errors());
         assertNotNull(body.timeStamp());
