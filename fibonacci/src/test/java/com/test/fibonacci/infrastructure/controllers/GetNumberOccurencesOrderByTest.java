@@ -1,6 +1,7 @@
 package com.test.fibonacci.infrastructure.controllers;
 
 import com.test.fibonacci.infrastructure.entrypoints.controllers.GetNumberOccurrencesOrderBy;
+import com.test.fibonacci.infrastructure.entrypoints.dtos.ApiResponseDto;
 import com.test.fibonacci.infrastructure.entrypoints.dtos.FibonacciResponseDto;
 import com.test.fibonacci.infrastructure.entrypoints.handlers.FibonacciHandler;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,8 +29,7 @@ class GetNumberOccurencesOrderByTest {
 
     @BeforeEach
     void setup() {
-        GetNumberOccurrencesOrderBy controller =
-                new GetNumberOccurrencesOrderBy(handler);
+        GetNumberOccurrencesOrderBy controller = new GetNumberOccurrencesOrderBy(handler);
 
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
@@ -39,19 +39,21 @@ class GetNumberOccurencesOrderByTest {
 
         List<FibonacciResponseDto> list = List.of(
                 new FibonacciResponseDto(5, 10),
-                new FibonacciResponseDto(8, 7)
-        );
+                new FibonacciResponseDto(8, 7));
 
-        when(handler.getOccurrencesOrderBy()).thenReturn(ResponseEntity.ok(list));
+        when(handler.getOccurrencesOrderBy())
+                .thenReturn(ResponseEntity.ok(new ApiResponseDto<>(list, null)));
 
         mockMvc.perform(get("/fibonacci/occurrences"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].number").value(5))
-                .andExpect(jsonPath("$[0].occurrences").value(10))
-                .andExpect(jsonPath("$[1].number").value(8))
-                .andExpect(jsonPath("$[1].occurrences").value(7));
+                .andExpect(jsonPath("$.data[0].number").value(5))
+                .andExpect(jsonPath("$.data[0].occurrences").value(10))
+                .andExpect(jsonPath("$.data[1].number").value(8))
+                .andExpect(jsonPath("$.data[1].occurrences").value(7))
+                .andExpect(jsonPath("$.error").doesNotExist());
 
         verify(handler).getOccurrencesOrderBy();
         verifyNoMoreInteractions(handler);
     }
+
 }

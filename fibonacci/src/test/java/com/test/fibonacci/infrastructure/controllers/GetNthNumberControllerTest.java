@@ -1,6 +1,7 @@
 package com.test.fibonacci.infrastructure.controllers;
 
 import com.test.fibonacci.infrastructure.entrypoints.controllers.GetNthNumberController;
+import com.test.fibonacci.infrastructure.entrypoints.dtos.ApiResponseDto;
 import com.test.fibonacci.infrastructure.entrypoints.dtos.FibonacciDto;
 import com.test.fibonacci.infrastructure.entrypoints.dtos.NthNumberResponseDto;
 import com.test.fibonacci.infrastructure.entrypoints.handlers.FibonacciHandler;
@@ -32,12 +33,12 @@ class GetNthNumberControllerTest {
     void testGetNthNumberDelegatesToHandler() {
         // given
         FibonacciDto dto = new FibonacciDto( 8);
-        ResponseEntity<NthNumberResponseDto> expectedResponse = ResponseEntity.ok(new NthNumberResponseDto(21L));
+        ResponseEntity<ApiResponseDto<NthNumberResponseDto>> expectedResponse = ResponseEntity.ok(new ApiResponseDto<>(new NthNumberResponseDto(21L), null));
 
         when(handler.getNthNumber(dto)).thenReturn(expectedResponse);
 
         // when
-        ResponseEntity<NthNumberResponseDto> response = controller.getNthNumber(dto);
+        ResponseEntity<ApiResponseDto<NthNumberResponseDto>> response = controller.getNthNumber(dto);
 
         // then
         assertEquals(expectedResponse, response);

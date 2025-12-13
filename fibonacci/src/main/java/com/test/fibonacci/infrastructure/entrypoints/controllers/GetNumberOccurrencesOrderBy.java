@@ -1,5 +1,6 @@
 package com.test.fibonacci.infrastructure.entrypoints.controllers;
 
+import com.test.fibonacci.infrastructure.entrypoints.dtos.ApiResponseDto;
 import com.test.fibonacci.infrastructure.entrypoints.dtos.FibonacciResponseDto;
 import com.test.fibonacci.infrastructure.entrypoints.handlers.FibonacciHandler;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,7 +28,7 @@ public class GetNumberOccurrencesOrderBy {
             description = "Returns a list of Fibonacci numbers sorted by the number of times they were requested."
     )
     @ApiResponse(responseCode = "200", description = "Occurrences retrieved successfully")
-    public ResponseEntity<List<FibonacciResponseDto>> getNumberOccurrences() {
+    public ResponseEntity<ApiResponseDto<List<FibonacciResponseDto>>> getNumberOccurrences() {
         return this.handler.getOccurrencesOrderBy();
     }
 }

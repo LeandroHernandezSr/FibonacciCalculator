@@ -1,5 +1,6 @@
 package com.test.fibonacci.infrastructure.entrypoints.controllers;
 
+import com.test.fibonacci.infrastructure.entrypoints.dtos.ApiResponseDto;
 import com.test.fibonacci.infrastructure.entrypoints.dtos.FibonacciDto;
 import com.test.fibonacci.infrastructure.entrypoints.dtos.NthNumberResponseDto;
 import com.test.fibonacci.infrastructure.entrypoints.handlers.FibonacciHandler;
@@ -33,7 +34,7 @@ public class GetNthNumberController {
             description = "Fibonacci number calculated successfully",
             content = @Content(schema = @Schema(implementation = NthNumberResponseDto.class))
     )
-    public ResponseEntity<NthNumberResponseDto> getNthNumber(
+    public ResponseEntity<ApiResponseDto<NthNumberResponseDto>> getNthNumber(
             @RequestBody FibonacciDto dto) {
         return this.handler.getNthNumber(dto);
     }
