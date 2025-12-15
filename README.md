@@ -43,7 +43,7 @@ Para ejecutar el proyecto, necesitarás tener instalados los siguientes componen
 
 Accede a la documentación interactiva para explorar y probar todos los endpoints:
 
-* **URL:** `http://localhost:8080/swagger-ui.html`
+* **Local:** `http://localhost:8080/swagger-ui.html`
 * **Cloud:** `http://54.94.97.140:8080/swagger-ui/index.html`
 
 
