@@ -1,5 +1,6 @@
 package com.test.fibonacci.application.usecases;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Component;
 
 import com.test.fibonacci.domain.model.Fibonacci;
@@ -16,6 +17,11 @@ public class SaveNthNumberUseCaseImpl implements SaveNthNumberUseCase{
     }
 
     @Override
+    @CacheEvict(
+        cacheNames = "fibonacci-by-number",
+        key = "#fibonacci.nthNumber",
+        beforeInvocation = true
+    )
     public Fibonacci apply(Fibonacci fibonacci) {
         return repository
                 .saveFibonacciEntity(fibonacci)
