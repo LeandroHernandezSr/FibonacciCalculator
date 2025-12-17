@@ -28,6 +28,21 @@ Para ejecutar el proyecto, necesitarás tener instalados los siguientes componen
 
 ---
 
+## 📦 Caché de Fibonacci
+
+Se implementó un **sistema de caching** para optimizar la búsqueda de números de Fibonacci ya calculados.  
+Esto permite que las consultas repetidas no lleguen a la base de datos, mejorando el rendimiento.
+
+### Tecnologías y dependencias utilizadas
+
+- **Spring Boot Cache** (`spring-boot-starter-cache`)  
+  Permite usar `@Cacheable`, `@CacheEvict` y `@CachePut` en la capa de aplicación.
+
+- **Caffeine** (`com.github.ben-manes.caffeine:caffeine`)  
+  Motor de cache rápido y en memoria, configurable con TTL y tamaño máximo.
+
+---
+
 ## 🌐 Endpoints del Servicio
 
 * El servicio está disponible en el puerto `8080` de forma local (`http://localhost:8080`).
